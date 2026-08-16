@@ -28,8 +28,10 @@ public class NinjaModel {
     o atributo ID irá ser atribuído sequencialmente (1, 2, 3, ...) */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
+    @Column(name = "Nome")
     private String nome;
 
     /* Column(unique = true) - essa coluna não pode ter itens repetidos.
@@ -37,6 +39,7 @@ public class NinjaModel {
     @Column(unique = true)
     private String email;
 
+    @Column(name = "Idade")
     private int idade;
 
     //@ManyToOne - um ninja tem uma única missão
