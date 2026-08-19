@@ -5,6 +5,7 @@ import dev.brunoevoluindo.CadastroDeNinja.Ninjas.Repository.NinjaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NinjaService {
@@ -20,4 +21,15 @@ public class NinjaService {
     public List<NinjaModel> listarNinjas(){
         return ninjaRepository.findAll();
     }
+
+    public NinjaModel listarNinjasID(Long id){
+        Optional<NinjaModel> ninjaID = ninjaRepository.findById(id);
+        return ninjaID.orElse(null);
+    }
+
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
+    }
+
+
 }
