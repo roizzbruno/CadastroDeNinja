@@ -18,18 +18,26 @@ public class NinjaService {
     }
 
     //Serviços/Funções
+
+    //Adicionar Ninja (CREATE)
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
+    }
+
+    //Listar todos os Ninjas (READ)
     public List<NinjaModel> listarNinjas(){
         return ninjaRepository.findAll();
     }
 
+    //Listar Ninja por ID (CREATE)
     public NinjaModel listarNinjasID(Long id){
         Optional<NinjaModel> ninjaID = ninjaRepository.findById(id);
         return ninjaID.orElse(null);
     }
 
-    public NinjaModel criarNinja(NinjaModel ninja){
-        return ninjaRepository.save(ninja);
+    //Deletar Ninja (DELETE)
+    public void deletarNinja(Long id){
+        ninjaRepository.deleteById(id);
     }
-
 
 }
